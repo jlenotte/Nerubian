@@ -2,21 +2,21 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.nio.charset.StandardCharsets;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import javax.swing.text.Document;
 import org.jsoup.Jsoup;
-import org.jsoup.examples.HtmlToPlainText;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Document.OutputSettings;
+import org.jsoup.safety.Whitelist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.net.URL;
 
 public class Jobs
 {
@@ -25,10 +25,7 @@ public class Jobs
     private final String USER_AGENT = "Mozilla/5.0";
 
     /**
-     *
-     * This method will convert a Company
-     * object into a useable URL
-     *
+     * This method will convert a Company object into a useable URL
      */
     public List<URLObject> convertURL(List<Company> list)
     {
@@ -45,84 +42,72 @@ public class Jobs
     }
 
     /**
-     *
      * This method will fire HTTP GET method
-     *
      */
-    public void fireHttpGET(List<URLObject> urls, String filePath, String link) throws Exception
+    public String fireHttpGET(String filePath, String link) throws Exception
     {
 
-        try (FileWriter fw = new FileWriter(filePath))
+        // Init
+        URL url = new URL(link);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+        // Request method
+        conn.setRequestMethod("GET");
+
+        // Request header
+        conn.setRequestProperty("User-Agent", USER_AGENT);
+
+        // Response code
+        int responseCode = conn.getResponseCode();
+        LOGGER.info("\n Sending 'GET' request to URL : " + url);
+        LOGGER.info("Response code : " + responseCode);
+
+        // Check if response code is valid
+        if (responseCode != 200)
         {
-            // Init
-            URL url = new URL(link);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-            // Request method
-            conn.setRequestMethod("GET");
-
-            // Request header
-            conn.setRequestProperty("User-Agent", USER_AGENT);
-
-            // Response code
-            int responseCode = conn.getResponseCode();
-            LOGGER.debug("\n Sending 'GET' request to URL : " + url);
-            LOGGER.debug("Response code : " + responseCode);
-
-            // Save result in a file
-            LOGGER.info("Saving result...");
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            BufferedWriter bw = new BufferedWriter(fw);
-            StringBuffer response = new StringBuffer();
-            String inLine;
-
-            while ((inLine = br.readLine()) != null)
-            {
-                response.append(inLine);
-                bw.write(inLine);
-            }
-            br.close();
-
-            // Log result
-            LOGGER.debug(response.toString());
-            LOGGER.info("GET Request successful. Results saved in a file.");
+            LOGGER.error("Bad response code : " + responseCode);
         }
-        catch (IOException e)
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+        StringBuffer response = new StringBuffer();
+        String inLine;
+
+        while ((inLine = br.readLine()) != null)
         {
-            LOGGER.error("Error while performing the GET request.");
-            LOGGER.error("Exception message : " + e.getMessage());
+            response.append(inLine);
         }
+
+        br.close();
+
+        // Log result
+        //LOGGER.debug(response.toString());
+
+        LOGGER.info("HTTP GET request successful.");
+        return response.toString();
     }
 
     /**
      *
-     * This method will take the text file
-     * data and filter it of any html tag
-     * and write the result into a text file
+     * This method will remove HTML tags
+     * from a text file
      *
      */
-    public void removeHtmlTags() throws FileNotFoundException
+    public String removeHtmlTags(String doc) throws FileNotFoundException
     {
         try
         {
-            // Init
+            // Parse and clean html tags
             LOGGER.info("Now cleaning HTML tags...");
             String html = new Scanner(new File("result.txt")).useDelimiter("\\A").next();
-            String cleanText = Jsoup.parse(html).text();
-            LOGGER.debug(cleanText);
+            doc = Jsoup.clean(html, "", Whitelist.none().addTags("br", "p"),
+                new OutputSettings().prettyPrint(true));
+            LOGGER.debug(String.valueOf(doc));
 
-            /*
-             * To implement : if the text contains another link,
-             * then crawl that page too, and if that one link also
-             * contains links, crawl them too, with a maximum depth
-             * of links to dig in.
-             */
-
-            // Write to file
+/*            // Write to file
             FileWriter fw = new FileWriter("cleanHtml.txt");
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(cleanText);
-            bw.close();
+            bw.write(String.valueOf(doc));
+            bw.close();*/
 
             // Log
             LOGGER.info("Tags cleaned successfully.");
@@ -131,41 +116,69 @@ public class Jobs
         {
             LOGGER.error(e.getMessage());
         }
+        return Jsoup.clean(doc, "", Whitelist.none(), new OutputSettings().prettyPrint(false));
     }
 
-    void crawl(List<URLObject> urls) throws Exception
-    {
-        for (URLObject url : urls)
-        {
-            //fireHttpGET(urls);
-            removeHtmlTags();
-        }
-    }
 
-    public void writeResult(String filePath, HttpURLConnection conn) throws IOException
+    /**
+     * This method writes the result of removeHtmlTags()
+     *
+     * @param filePath takes a String in param
+     * @param conn takes an HttpURLConnection in param
+     * @throws IOException throws an IOEx
+     */
+    public void getHttpGetResult(String filePath, HttpURLConnection conn) throws IOException
     {
         try (FileWriter fw = new FileWriter(filePath))
         {
-            LOGGER.info("Saving result...");
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            BufferedWriter bw = new BufferedWriter(fw);
-            StringBuffer response = new StringBuffer();
-            String inLine;
-
-            while ((inLine = br.readLine()) != null)
+            try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream())))
             {
-                response.append(inLine);
-                bw.write(inLine);
-            }
-            br.close();
+                LOGGER.info("Saving result...");
+                ;
+                BufferedWriter bw = new BufferedWriter(fw);
+                StringBuffer response = new StringBuffer();
+                String inLine;
 
-            // Log result
-            LOGGER.debug(response.toString());
-            LOGGER.info("GET Request successful. Results saved in a file.");
+                while ((inLine = br.readLine()) != null)
+                {
+                    response.append(inLine);
+                    bw.write(inLine);
+                }
+
+                br.close();
+                bw.close();
+
+                // Log result
+                LOGGER.debug(response.toString());
+                LOGGER.info("GET Request successful. Results saved in a file.");
+                LOGGER.debug(response.toString());
+            }
+            catch (IOException e)
+            {
+                LOGGER.error(e.getMessage());
+            }
         }
         catch (IOException e)
         {
-
+            LOGGER.error(e.getMessage());
         }
+    }
+
+    public void getCleanTextResult(String doc) throws IOException
+    {
+        try
+        {
+            // Write to file
+            FileWriter fw = new FileWriter("cleanHtml.txt");
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(String.valueOf(doc));
+            bw.close();
+        }
+        catch (IOException e)
+        {
+            LOGGER.error(e.getMessage());
+        }
+
     }
 }

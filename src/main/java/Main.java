@@ -9,6 +9,7 @@ public class Main
         // Init variables and objects
         File file = new File("result.txt");
         String html = String.valueOf(file);
+        String doc = "";
         File inData = new File("data.csv");
         DataReader dr = new DataReader();
         Jobs job = new Jobs();
@@ -17,9 +18,10 @@ public class Main
 
         // Method calls
         List<URLObject> urlObjectList = job.convertURL(list);
-        job.fireHttpGET(urlObjectList, "result.txt", "https://www.ovh.com/fr/");
-        job.removeHtmlTags();
-        //job.crawl(urlObjectList);
+//        job.fireHttpGET(urlObjectList, "result.txt", "https://www.ovh.com/fr/");
+        job.removeHtmlTags(html);
+        job.getCleanTextResult(doc);
+
 
         // Not my code
         // new Links().getPageLinks("https://github.com/");
