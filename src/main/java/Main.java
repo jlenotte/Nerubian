@@ -17,7 +17,12 @@ public class Main
 
         // Method calls
         List<URLObject> urlObjectList = job.convertURL(list);
-        job.fireHttpGET();
+        job.fireHttpGET(urlObjectList, "result.txt", "https://www.ovh.com/fr/");
         job.removeHtmlTags();
+        //job.crawl(urlObjectList);
+
+        // Not my code
+        // new Links().getPageLinks("https://github.com/");
+
     }
 }
