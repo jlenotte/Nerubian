@@ -1,4 +1,4 @@
-import NerubianCore.Jobs;
+import nerubian.core.Jobs;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -16,7 +16,7 @@ public class CrawlerTest
         Jobs job = new Jobs();
 
         job.fireHttpGET("https://www.ovh.com/fr/");
-        job.getHttpGetResult("HTTP_GET_RESULT.txt", conn);
+        job.writetHttpGetResult("HTTP_GET_RESULT.txt");
     }
 
     @Test
@@ -29,6 +29,6 @@ public class CrawlerTest
         Jobs job = new Jobs();
 
         String cleanedHtml = job.removeHtmlTags(doc);
-        job.getCleanTextResult(cleanedHtml);
+        job.writeCleanTextResult(cleanedHtml);
     }
 }

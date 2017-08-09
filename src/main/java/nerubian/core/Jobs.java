@@ -1,6 +1,5 @@
-package NerubianCore;
+package nerubian.core;
 
-import ch.qos.logback.classic.Level;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -42,7 +41,10 @@ public class Jobs
             URLObject url = new URLObject(company.getURL());
             resultList.add(url);
         }
-        if (resultList.isEmpty())
+
+        // The LOGGER.isDebugEnabled ensures that resultList
+        // logging is not invoked only conditionally
+        if (LOGGER.isDebugEnabled() && resultList.isEmpty())
         {
             LOGGER.warn("WARNING : The list is empty.");
         }
@@ -101,9 +103,10 @@ public class Jobs
     /**
      * This method will remove HTML tags from a text file
      */
-    public String removeHtmlTags(String doc) throws IOException
+    public String removeHtmlTags(String filePath) throws IOException
     {
-        try (Scanner in = new Scanner(new File("HTTP_GET_RESULT.txt")))
+        String doc = "";
+        try (Scanner in = new Scanner(new File(filePath)))
         {
             // Clean html tags with Jsoup
             LOGGER.info("Now cleaning HTML tags...");
@@ -113,7 +116,6 @@ public class Jobs
             doc = Jsoup.clean(html, "", Whitelist.none().addTags("br", "p"),
                 new OutputSettings().prettyPrint(true));
 
-            LOGGER.debug(String.valueOf(doc));
             LOGGER.info("Tags cleaned successfully.");
         }
         catch (IOException e)
@@ -127,60 +129,36 @@ public class Jobs
     /**
      * This method writes the result of the HTTP GET method on a file
      * @param filePath takes a String in param
-     * @param conn takes an HttpURLConnection in param
+     * @param filePath takes an HttpURLConnection in param
      * @throws IOException throws an IOEx
      */
-    public void getHttpGetResult(String filePath, HttpURLConnection conn) throws IOException
+    public void writetHttpGetResult(String filePath) throws IOException
     {
-        try (FileWriter fw = new FileWriter(filePath))
+        try (FileWriter fw = new FileWriter("HTTP_GET_RESULT.txt"))
         {
-            try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(conn.getInputStream())))
+            try (BufferedWriter bw = new BufferedWriter(fw))
             {
                 LOGGER.info("Saving result...");
-                ;
-                BufferedWriter bw = new BufferedWriter(fw);
-                StringBuilder response = new StringBuilder();
-                String inLine;
-
-                while ((inLine = br.readLine()) != null)
-                {
-                    response.append(inLine);
-                    bw.write(inLine);
-                }
-
-                br.close();
-                bw.close();
+                bw.write(filePath);
 
                 // Log result
-                LOGGER.info("GET Request successful. Results saved in a file.");
-                LOGGER.debug(response.toString());
+                LOGGER.debug(filePath);
             }
-            catch (IOException e)
-            {
-                LOGGER.error(e.getMessage());
-            }
-        }
-        catch (IOException e)
-        {
-            LOGGER.error(e.getMessage());
         }
     }
 
     /**
      * This method writes the cleaned up text into a file
-     *
-     * @param doc Takes a String as param
      * @throws IOException throws IOE
      */
-    public void getCleanTextResult(String doc) throws IOException
+    public void writeCleanTextResult(String cleanHtml) throws IOException
     {
         try (FileWriter fw = new FileWriter(CLEAN_TEXT_FILE))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
                 // Write to file
-                bw.write(String.valueOf(doc));
+                bw.write(cleanHtml);
             }
             LOGGER.info("Clean text written with success and available in project folder.");
         }

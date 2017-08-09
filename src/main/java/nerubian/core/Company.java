@@ -1,24 +1,27 @@
-package NerubianCore;
+package nerubian.core;
 
 public class Company
 {
 
     // Attributes
     private String companyName;
-    private String URL;
+    /**
+     * url
+     */
+    private String url;
 
     // Empty constructor
     public Company()
     {
         this.companyName = null;
-        this.URL = null;
+        this.url = null;
     }
 
     // Constructor
-    public Company(String companyName, String URL)
+    public Company(String companyName, String url)
     {
         this.companyName = companyName;
-        this.URL = URL;
+        this.url = url;
     }
 
     // Getters & Setters
@@ -34,18 +37,18 @@ public class Company
 
     String getURL()
     {
-        return URL;
+        return url;
     }
 
-    void setURL(String URL)
+    void setURL(String url)
     {
-        this.URL = URL;
+        this.url = url;
     }
 
     @Override
     public String toString()
     {
         return "Name : " + companyName +
-            ", URL : '" + URL + "\n";
+            ", URL : '" + url + "\n";
     }
 }

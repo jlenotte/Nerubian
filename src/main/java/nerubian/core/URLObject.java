@@ -1,37 +1,37 @@
-package NerubianCore;
+package nerubian.core;
 
 public class URLObject
 {
 
     // Attributes
-    private String URL;
+    private String url;
 
     // Construct
     public URLObject()
     {
-        this.URL = null;
+        this.url = null;
     }
 
-    public URLObject(String URL)
+    public URLObject(String url)
     {
-        this.URL = URL;
+        this.url = url;
     }
 
     // Getters & Setters
 
     public String getURL()
     {
-        return URL;
+        return url;
     }
 
-    public void setURL(String URL)
+    public void setURL(String url)
     {
-        this.URL = URL;
+        this.url = url;
     }
 
     @Override
     public String toString()
     {
-        return "URL : " + URL + "\n";
+        return "url : " + url + "\n";
     }
 }

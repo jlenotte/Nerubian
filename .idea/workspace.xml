@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6a60f4b-5dfc-4682-bcf1-01011fa7ae58" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/IOTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/IOTest.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Company.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Company.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/DataReader.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/URLObject.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" afterPath="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" afterPath="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" afterPath="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" afterPath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,14 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Jobs.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="44" column="33" lean-forward="true" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
-              <folding>
-                <marker date="1502285655062" expanded="true" signature="85:553" ph="..." />
-              </folding>
+            <state relative-caret-position="493">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,6 +45,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>Équipes R&amp;D et exploita</find>
+      <find>URL</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -65,7 +67,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Links.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Jobs.java" />
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Company.java" />
@@ -73,6 +74,11 @@
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Company.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
       </list>
     </option>
   </component>
@@ -158,7 +164,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="NerubianCore" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Nerubian" type="b2602c69:ProjectViewProjectNode" />
@@ -194,7 +200,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="SONARLINT_ANALYSIS_RESULTS_SCOPE" value="VCS changed files" />
+    <property name="SONARLINT_ANALYSIS_RESULTS_SCOPE" value="All project files" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
   </component>
@@ -210,7 +216,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="CrawlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="CodenameNerubian" />
@@ -271,25 +277,24 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="IOTest.readFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="CodenameNerubian" />
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="nerubian.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="nerubian.core.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="IOTest" />
-      <option name="METHOD_NAME" value="readFile" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
+      <module name="CodenameNerubian" />
       <envs />
-      <patterns />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -386,19 +391,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.IOTest.readFile" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
+      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.IOTest.readFile" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -439,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502280564311</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="More tests done, code quality improved.">
+      <created>1502285855037</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1502285855037</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -486,7 +498,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2064" y="118" width="1486" height="924" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2056" y="120" width="1502" height="930" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -545,22 +557,38 @@
     <MESSAGE value="Fixed VCS issues &amp; fixing code." />
     <MESSAGE value="Need to fix code and the writing method for removeHtmlTags()" />
     <MESSAGE value="Program is functionnal. More testing required." />
-    <option name="LAST_COMMIT_MESSAGE" value="Program is functionnal. More testing required." />
+    <MESSAGE value="More tests done, code quality improved." />
+    <option name="LAST_COMMIT_MESSAGE" value="More tests done, code quality improved." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
           <caret line="100" column="50" lean-forward="true" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
           <folding>
-            <marker date="1502285655062" expanded="true" signature="85:553" ph="..." />
+            <marker date="1502293003614" expanded="true" signature="31:517" ph="..." />
+            <marker date="1502293003614" expanded="true" signature="49:517" ph="..." />
+            <marker date="1502293003614" expanded="true" signature="519:601" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="833:925" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="988:1621" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="1263:1368" ph="//..." />
+            <marker date="1502293003614" expanded="true" signature="1627:1683" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="1750:2869" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="2875:2944" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="3018:3710" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="3717:3946" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="4023:4363" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="4369:4476" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="4555:5068" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="5074:5133" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="5165:5585" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -570,10 +598,10 @@
         <state relative-caret-position="357">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <marker date="1502270775941" expanded="false" signature="7:132" ph="..." />
-            <marker date="1502270775941" expanded="true" signature="26:132" ph="..." />
-            <marker date="1502270775941" expanded="true" signature="223:530" ph="{...}" />
-            <marker date="1502270775941" expanded="true" signature="602:922" ph="{...}" />
+            <marker date="1502289765467" expanded="false" signature="7:133" ph="..." />
+            <marker date="1502289765467" expanded="true" signature="27:133" ph="..." />
+            <marker date="1502289765467" expanded="true" signature="224:528" ph="{...}" />
+            <marker date="1502289765467" expanded="true" signature="600:922" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -626,79 +654,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/URLObject.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/DataReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="765">
+          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
           <folding>
-            <marker date="1502280556423" expanded="true" signature="136:168" ph="{...}" />
-            <marker date="1502280556423" expanded="true" signature="207:238" ph="{...}" />
-            <marker date="1502280556423" expanded="true" signature="297:324" ph="{...}" />
-            <marker date="1502280556423" expanded="true" signature="365:396" ph="{...}" />
-            <marker date="1502280556423" expanded="true" signature="445:490" ph="{...}" />
+            <marker date="1502287469791" expanded="true" signature="31:237" ph="..." />
+            <marker date="1502287469791" expanded="true" signature="421:1398" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="238">
+          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+          <folding>
+            <marker date="1502289765467" expanded="false" signature="7:133" ph="..." />
+            <marker date="1502289765467" expanded="true" signature="27:133" ph="..." />
+            <marker date="1502289765467" expanded="true" signature="224:528" ph="{...}" />
+            <marker date="1502289765467" expanded="true" signature="600:922" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <marker date="1502292833070" expanded="true" signature="102:124" ph="/**...*/" />
+            <marker date="1502292833070" expanded="true" signature="200:265" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="341:412" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="471:506" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="556:603" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="629:656" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="690:721" ph="{...}" />
+            <marker date="1502292833070" expanded="true" signature="770:856" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <marker date="1502292833078" expanded="true" signature="137:169" ph="{...}" />
+            <marker date="1502292833078" expanded="true" signature="208:239" ph="{...}" />
+            <marker date="1502292833078" expanded="true" signature="298:325" ph="{...}" />
+            <marker date="1502292833078" expanded="true" signature="366:397" ph="{...}" />
+            <marker date="1502292833078" expanded="true" signature="446:491" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2436">
+          <caret line="149" column="7" lean-forward="true" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
+          <folding>
+            <marker date="1502293003614" expanded="true" signature="31:517" ph="..." />
+            <marker date="1502293003614" expanded="true" signature="49:517" ph="..." />
+            <marker date="1502293003614" expanded="true" signature="519:601" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="833:925" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="988:1621" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="1263:1368" ph="//..." />
+            <marker date="1502293003614" expanded="true" signature="1627:1683" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="1750:2869" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="2875:2944" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="3018:3710" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="3717:3946" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="4023:4363" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="4369:4476" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="4555:5068" ph="{...}" />
+            <marker date="1502293003614" expanded="true" signature="5074:5133" ph="/**...*/" />
+            <marker date="1502293003614" expanded="true" signature="5165:5585" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
           <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <marker date="1502270775941" expanded="false" signature="7:132" ph="..." />
-            <marker date="1502270775941" expanded="true" signature="26:132" ph="..." />
-            <marker date="1502270775941" expanded="true" signature="223:530" ph="{...}" />
-            <marker date="1502270775941" expanded="true" signature="602:922" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-          <folding>
-            <marker date="1502282696748" expanded="true" signature="30:236" ph="..." />
-            <marker date="1502282696748" expanded="true" signature="420:1397" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/Company.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <marker date="1502280556419" expanded="true" signature="172:237" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="313:384" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="443:478" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="528:575" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="601:628" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="662:693" ph="{...}" />
-            <marker date="1502280556419" expanded="true" signature="742:828" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-          <folding>
-            <marker date="1502285580046" expanded="true" signature="23:78" ph="..." />
-            <marker date="1502285580046" expanded="true" signature="30:78" ph="..." />
-            <marker date="1502285580046" expanded="true" signature="165:986" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="44" column="33" lean-forward="true" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
-          <folding>
-            <marker date="1502285655062" expanded="true" signature="85:553" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,4 +1,4 @@
-package NerubianCore;
+package nerubian.core;
 
 import com.opencsv.CSVReader;
 import java.io.File;
