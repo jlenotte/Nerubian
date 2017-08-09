@@ -5,15 +5,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DataReader
 {
 
-    final static Logger LOGGER = LoggerFactory.getLogger(DataReader.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DataReader.class);
 
-    public ArrayList<Company> readFile(File inFile) throws IOException
+    public List<Company> readFile(File inFile) throws IOException
     {
         ArrayList<Company> list = new ArrayList<>();
 

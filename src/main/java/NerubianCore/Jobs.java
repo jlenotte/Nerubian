@@ -1,5 +1,7 @@
 package NerubianCore;
 
+import ch.qos.logback.classic.Level;
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -17,11 +19,15 @@ import org.jsoup.safety.Whitelist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Class Jobs contains all the core processing methods for the web crawler
+ */
 public class Jobs
 {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Jobs.class);
     private static final String USER_AGENT = "Mozilla/5.0";
+    private static final String CLEAN_TEXT_FILE = "cleanText.txt";
 
     /**
      * This method will convert a NerubianCore.Company object into a useable URL
@@ -64,16 +70,21 @@ public class Jobs
         conn.setRequestProperty("User-Agent", USER_AGENT);
 
         // Response code
-        int responseCode = conn.getResponseCode();
-        LOGGER.info("\n Sending 'GET' request to URL : %s", url);
-        LOGGER.info("Response code : %s", responseCode);
+        final int responseCode = conn.getResponseCode();
+        LOGGER.info("Sending 'GET' request to URL : {}", url);
+        LOGGER.info("Response code : {}", responseCode);
 
         // Check if response code is valid
         if (responseCode != 200)
         {
-            LOGGER.error("Bad response code : %s", responseCode);
+            LOGGER.error("Bad response code : {}", responseCode);
+        }
+        else
+        {
+            LOGGER.info("HTTP GET request successful.");
         }
 
+        // Get the response via InputStream
         BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         StringBuilder response = new StringBuilder();
         String inLine;
@@ -84,7 +95,6 @@ public class Jobs
         }
         br.close();
 
-        LOGGER.info("HTTP GET request successful.");
         return response.toString();
     }
 
@@ -93,7 +103,7 @@ public class Jobs
      */
     public String removeHtmlTags(String doc) throws IOException
     {
-        try (Scanner in = new Scanner(new File("result.txt"));)
+        try (Scanner in = new Scanner(new File("HTTP_GET_RESULT.txt")))
         {
             // Clean html tags with Jsoup
             LOGGER.info("Now cleaning HTML tags...");
@@ -157,20 +167,47 @@ public class Jobs
         }
     }
 
-
+    /**
+     * This method writes the cleaned up text into a file
+     *
+     * @param doc Takes a String as param
+     * @throws IOException throws IOE
+     */
     public void getCleanTextResult(String doc) throws IOException
     {
-        try (FileWriter fw = new FileWriter("cleanText.txt"))
+        try (FileWriter fw = new FileWriter(CLEAN_TEXT_FILE))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
                 // Write to file
                 bw.write(String.valueOf(doc));
             }
+            LOGGER.info("Clean text written with success and available in project folder.");
         }
         catch (IOException e)
         {
-            LOGGER.error(e.getMessage());
+            LOGGER.error("Something went wrong while writing the result on a file : {}",
+                e.getMessage());
+        }
+    }
+
+    /**
+     * This method will open up the result file
+     */
+    public void openFile()
+    {
+        try
+        {
+            LOGGER.info("Opening up file...");
+            if ((new File(CLEAN_TEXT_FILE)).exists())
+            {
+                Desktop.getDesktop().open(new File(CLEAN_TEXT_FILE));
+            }
+            LOGGER.info("File opened.");
+        }
+        catch (IOException e)
+        {
+            LOGGER.error("Error while trying to open the result file. Exception : %s", e);
         }
     }
 }

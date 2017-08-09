@@ -13,7 +13,7 @@ public class Main
         String filePath = "HTTP_GET_RESULT.txt";
 
         // Init an URL & HTTP connection
-        String link = "http://www.w3resource.com/";
+        String link = "https://www.jetbrains.com/";
         URL url = new URL(link);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -21,7 +21,7 @@ public class Main
         Jobs job = new Jobs();
 
         // HTTP GET
-        job.fireHttpGET("http://www.w3resource.com/");
+        String httpGetResult = job.fireHttpGET(link);
 
         // HTTP GET result into a file
         job.getHttpGetResult(filePath, conn);
@@ -31,5 +31,8 @@ public class Main
 
         // Clean text is written in a .txt file
         job.getCleanTextResult(cleanedHtml);
+
+        // Open the file to check results
+        job.openFile();
     }
 }
