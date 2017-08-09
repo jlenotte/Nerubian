@@ -16,7 +16,7 @@ public class CrawlerTest
         Jobs job = new Jobs();
 
         job.fireHttpGET("https://www.ovh.com/fr/");
-        job.writetHttpGetResult("HTTP_GET_RESULT.txt");
+//        job.writetHttpGetResult("HTTP_GET_RESULT.txt");
     }
 
     @Test
@@ -30,5 +30,15 @@ public class CrawlerTest
 
         String cleanedHtml = job.removeHtmlTags(doc);
         job.writeCleanTextResult(cleanedHtml);
+    }
+
+    @Test
+    public void getMetaData() throws IOException
+    {
+        String link = "https://www.ovh.com/fr/";
+        Jobs job = new Jobs();
+
+        String resultat = job.getMetaData(link);
+        System.out.println(resultat);
     }
 }

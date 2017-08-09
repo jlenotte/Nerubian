@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6a60f4b-5dfc-4682-bcf1-01011fa7ae58" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Company.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Company.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/DataReader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/NerubianCore/URLObject.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" afterPath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,12 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
+      <file leaf-file-name="CrawlerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="629">
+              <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+              <folding>
+                <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,11 +72,11 @@
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/DataReader.java" />
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Company.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
       </list>
     </option>
   </component>
@@ -130,9 +128,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,12 +191,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="SonarLintApp" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="settings.editor.selected.configurable" value="org.sonarlint.intellij.config.project.SonarLintProjectConfigurable" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="SONARLINT_ANALYSIS_RESULTS_SCOPE" value="All project files" />
@@ -216,16 +214,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
-    <configuration name="CrawlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CrawlerTest.getMetaData">
+    <configuration name="CrawlerTest.getMetaData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="CodenameNerubian" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CrawlerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="getMetaData" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -393,17 +391,17 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main (1)" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CrawlerTest.getMetaData" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CrawlerTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CrawlerTest.getMetaData" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CrawlerTest.removeHtmlTagsTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CrawlerTest.testHttpGet" />
       </list>
     </recent_temporary>
   </component>
@@ -451,24 +449,31 @@
       <option name="project" value="LOCAL" />
       <updated>1502285855037</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Code quality improved, Sonar finds no issues. Redundancies removed.">
+      <created>1502293077484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1502293077484</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.08 at 16h 06m 17s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 17m 24s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.08 at 16h 42m 09s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 18m 02s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 09h 42m 47s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 18m 23s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 09h 46m 01s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 19m 39s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 10h 10m 15s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 19m 46s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 11h 15m 18s.xml">
       <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
@@ -498,15 +503,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2056" y="120" width="1502" height="930" />
+      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2052" y="121" width="1510" height="933" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903865" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903865" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Tail" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903865" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -518,6 +522,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903865" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -558,7 +563,8 @@
     <MESSAGE value="Need to fix code and the writing method for removeHtmlTags()" />
     <MESSAGE value="Program is functionnal. More testing required." />
     <MESSAGE value="More tests done, code quality improved." />
-    <option name="LAST_COMMIT_MESSAGE" value="More tests done, code quality improved." />
+    <MESSAGE value="Code quality improved, Sonar finds no issues. Redundancies removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Code quality improved, Sonar finds no issues. Redundancies removed." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -568,27 +574,39 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+          <folding>
+            <marker date="1502297831507" expanded="true" signature="108:778" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
           <caret line="100" column="50" lean-forward="true" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
           <folding>
-            <marker date="1502293003614" expanded="true" signature="31:517" ph="..." />
-            <marker date="1502293003614" expanded="true" signature="49:517" ph="..." />
-            <marker date="1502293003614" expanded="true" signature="519:601" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="833:925" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="988:1621" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="1263:1368" ph="//..." />
-            <marker date="1502293003614" expanded="true" signature="1627:1683" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="1750:2869" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="2875:2944" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="3018:3710" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="3717:3946" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="4023:4363" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="4369:4476" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="4555:5068" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="5074:5133" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="5165:5585" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="31:550" ph="..." />
+            <marker date="1502299177365" expanded="true" signature="49:550" ph="..." />
+            <marker date="1502299177365" expanded="true" signature="552:634" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="866:958" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="1021:1654" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="1296:1401" ph="//..." />
+            <marker date="1502299177365" expanded="true" signature="1746:1802" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="1869:2988" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="2994:3223" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="3318:3647" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="3741:3772" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="3839:4670" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="4764:4833" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="4907:5599" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="5605:5712" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="5791:6304" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="6396:6455" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="6487:6907" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -598,10 +616,7 @@
         <state relative-caret-position="357">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
-            <marker date="1502289765467" expanded="false" signature="7:133" ph="..." />
-            <marker date="1502289765467" expanded="true" signature="27:133" ph="..." />
-            <marker date="1502289765467" expanded="true" signature="224:528" ph="{...}" />
-            <marker date="1502289765467" expanded="true" signature="600:922" ph="{...}" />
+            <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
           </folding>
         </state>
       </provider>
@@ -646,38 +661,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Links.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/IOTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="30" column="28" lean-forward="false" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/DataReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-          <folding>
-            <marker date="1502287469791" expanded="true" signature="31:237" ph="..." />
-            <marker date="1502287469791" expanded="true" signature="421:1398" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="53" lean-forward="false" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding>
-            <marker date="1502289765467" expanded="false" signature="7:133" ph="..." />
-            <marker date="1502289765467" expanded="true" signature="27:133" ph="..." />
-            <marker date="1502289765467" expanded="true" signature="224:528" ph="{...}" />
-            <marker date="1502289765467" expanded="true" signature="600:922" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/IOTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Company.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -709,36 +693,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/DataReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2436">
-          <caret line="149" column="7" lean-forward="true" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
+        <state relative-caret-position="765">
+          <caret line="45" column="1" lean-forward="true" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
           <folding>
-            <marker date="1502293003614" expanded="true" signature="31:517" ph="..." />
-            <marker date="1502293003614" expanded="true" signature="49:517" ph="..." />
-            <marker date="1502293003614" expanded="true" signature="519:601" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="833:925" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="988:1621" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="1263:1368" ph="//..." />
-            <marker date="1502293003614" expanded="true" signature="1627:1683" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="1750:2869" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="2875:2944" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="3018:3710" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="3717:3946" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="4023:4363" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="4369:4476" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="4555:5068" ph="{...}" />
-            <marker date="1502293003614" expanded="true" signature="5074:5133" ph="/**...*/" />
-            <marker date="1502293003614" expanded="true" signature="5165:5585" ph="{...}" />
+            <marker date="1502287469791" expanded="true" signature="31:237" ph="..." />
+            <marker date="1502287469791" expanded="true" signature="421:1398" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="170">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <marker date="1502297831507" expanded="true" signature="108:778" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="685">
+          <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+          <folding>
+            <marker date="1502299177365" expanded="true" signature="31:550" ph="..." />
+            <marker date="1502299177365" expanded="true" signature="49:550" ph="..." />
+            <marker date="1502299177365" expanded="true" signature="552:634" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="866:958" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="1021:1654" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="1296:1401" ph="//..." />
+            <marker date="1502299177365" expanded="true" signature="1746:1802" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="1869:2988" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="2994:3223" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="3318:3647" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="3741:3772" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="3839:4670" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="4764:4833" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="4907:5599" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="5605:5712" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="5791:6304" ph="{...}" />
+            <marker date="1502299177365" expanded="true" signature="6396:6455" ph="/**...*/" />
+            <marker date="1502299177365" expanded="true" signature="6487:6907" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+          <folding>
+            <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -799,6 +808,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

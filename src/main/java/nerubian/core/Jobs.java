@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
 import org.jsoup.safety.Whitelist;
 import org.slf4j.Logger;
@@ -54,6 +55,8 @@ public class Jobs
         }
         return resultList;
     }
+
+    /******************************************************************************/
 
     /**
      * This method will fire HTTP GET method
@@ -101,6 +104,65 @@ public class Jobs
     }
 
     /**
+     * This method writes the result of the HTTP GET method on a file
+     *
+     * @param filePath takes a String in param
+     * @param filePath takes an HttpURLConnection in param
+     * @throws IOException throws an IOEx
+     */
+    public void writetHttpGetResult(String resultat1, String filePath) throws IOException
+    {
+        try (FileWriter fw = new FileWriter(filePath))
+        {
+            try (BufferedWriter bw = new BufferedWriter(fw))
+            {
+                LOGGER.info("Saving result...");
+                bw.write(resultat1);
+
+                // Log result
+                LOGGER.debug(resultat1);
+            }
+        }
+    }
+
+    /********************************************************************************/
+
+    /**
+     * Get metadata
+     */
+    public String getMetaData(String link) throws IOException
+    {
+        Document document = null;
+        String description = null;
+        String keywords = null;
+        try
+        {
+            // Get a document after parsing html from given url
+            document = Jsoup.connect(link).get();
+
+            // Get description from document object
+            description = document.select("meta[name=description]").get(0).attr("content");
+
+            // Log it
+            LOGGER.debug("Meta description {}", description);
+
+            // Get keywords from document objet
+            keywords = document.select("meta[name=keywords]").first().attr("content");
+
+            // Log it
+            LOGGER.debug("Meta keywords {}", keywords);
+        }
+        catch (IOException e)
+        {
+            LOGGER.error(e.getMessage());
+        }
+
+        return description + keywords;
+    }
+
+    /********************************************************************************/
+
+    /**
      * This method will remove HTML tags from a text file
      */
     public String removeHtmlTags(String filePath) throws IOException
@@ -125,28 +187,6 @@ public class Jobs
         return Jsoup.clean(doc, "", Whitelist.none(), new OutputSettings().prettyPrint(false));
     }
 
-
-    /**
-     * This method writes the result of the HTTP GET method on a file
-     * @param filePath takes a String in param
-     * @param filePath takes an HttpURLConnection in param
-     * @throws IOException throws an IOEx
-     */
-    public void writetHttpGetResult(String filePath) throws IOException
-    {
-        try (FileWriter fw = new FileWriter("HTTP_GET_RESULT.txt"))
-        {
-            try (BufferedWriter bw = new BufferedWriter(fw))
-            {
-                LOGGER.info("Saving result...");
-                bw.write(filePath);
-
-                // Log result
-                LOGGER.debug(filePath);
-            }
-        }
-    }
-
     /**
      * This method writes the cleaned up text into a file
      * @throws IOException throws IOE
@@ -168,6 +208,8 @@ public class Jobs
                 e.getMessage());
         }
     }
+
+    /******************************************************************************/
 
     /**
      * This method will open up the result file

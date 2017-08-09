@@ -12,10 +12,10 @@ public class Main
         Jobs job = new Jobs();
 
         // Fire the HTTP GET request
-        String httpGetResult = job.fireHttpGET(link);
+        String resulat1 = job.fireHttpGET(link);
 
         // Write HTTP GET result into a file
-        job.writetHttpGetResult(httpGetResult);
+        job.writetHttpGetResult(resulat1, filePath);
 
         // Clean the GET result of HTML tags
         String cleanedHtml = job.removeHtmlTags(filePath);
