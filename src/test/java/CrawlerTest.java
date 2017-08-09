@@ -1,9 +1,7 @@
-import java.io.File;
+import NerubianCore.Jobs;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.Test;
 
 public class CrawlerTest
@@ -17,7 +15,7 @@ public class CrawlerTest
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         Jobs job = new Jobs();
 
-        job.fireHttpGET("result.txt", "https://www.ovh.com/fr/");
+        job.fireHttpGET("https://www.ovh.com/fr/");
         job.getHttpGetResult("HTTP_GET_RESULT.txt", conn);
     }
 
@@ -30,7 +28,7 @@ public class CrawlerTest
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         Jobs job = new Jobs();
 
-        job.removeHtmlTags(doc);
-        job.getCleanTextResult(doc);
+        String cleanedHtml = job.removeHtmlTags(doc);
+        job.getCleanTextResult(cleanedHtml);
     }
 }

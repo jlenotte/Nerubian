@@ -1,15 +1,18 @@
+package NerubianCore;
+
 public class URLObject
 {
+
     // Attributes
-    String URL;
+    private String URL;
 
     // Construct
-    URLObject()
+    public URLObject()
     {
         this.URL = null;
     }
 
-    URLObject(String URL)
+    public URLObject(String URL)
     {
         this.URL = URL;
     }

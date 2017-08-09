@@ -1,3 +1,5 @@
+package NerubianCore;
+
 import com.opencsv.CSVReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 public class DataReader
 {
+
     final static Logger LOGGER = LoggerFactory.getLogger(DataReader.class);
 
     public ArrayList<Company> readFile(File inFile) throws IOException

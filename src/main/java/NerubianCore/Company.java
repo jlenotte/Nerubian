@@ -1,18 +1,21 @@
+package NerubianCore;
+
 public class Company
 {
+
     // Attributes
     private String companyName;
     private String URL;
 
     // Empty constructor
-    Company()
+    public Company()
     {
         this.companyName = null;
         this.URL = null;
     }
 
     // Constructor
-    Company(String companyName, String URL)
+    public Company(String companyName, String URL)
     {
         this.companyName = companyName;
         this.URL = URL;
