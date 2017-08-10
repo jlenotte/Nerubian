@@ -1,11 +1,15 @@
 package nerubian.core;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main
 {
     public static void main(String[] args) throws Exception
     {
         // Init strings used to store results & params
-        String filePath = "HTTP_GET_RESULT.txt";
+        int i = 0;
+        String filePath = "HTTP_GET_RESULT" + i++ + ".txt";
         String link = "https://www.ovh.com/fr/";
 
         // Init a Jobs class

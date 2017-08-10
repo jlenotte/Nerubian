@@ -35,10 +35,10 @@ public class CrawlerTest
     @Test
     public void getMetaData() throws IOException
     {
-        String link = "https://www.ovh.com/fr/";
+        String link = "https://www.jetbrains.com/";
         Jobs job = new Jobs();
 
         String resultat = job.getMetaData(link);
-        System.out.println(resultat);
+        job.formatMetaData(resultat);
     }
 }

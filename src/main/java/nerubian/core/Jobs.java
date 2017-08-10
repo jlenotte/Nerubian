@@ -133,10 +133,11 @@ public class Jobs
     {
         String description = null;
         String keywords = null;
+        LOGGER.info("Fetching {} ...", link);
         try
         {
             // Get a document after parsing html from given url
-            Document document = Jsoup.connect(link).get();
+            Document document = Jsoup.connect(link).timeout(600000).get();
 
             // Get description from document object
             description = document.select("meta[name=description]").get(0).attr("content");
@@ -160,6 +161,23 @@ public class Jobs
 
 
     /**
+     * Format Metadata for readability
+     */
+    public String[] formatMetaData(String result)
+    {
+        String[] list = result.split(",");
+
+        // For each value of the list, trim it
+        for (int i = 0; i < list.length; i++)
+        {
+            list[i] = list[i].trim();
+            LOGGER.debug(list[i]);
+        }
+        return list;
+    }
+
+
+    /**
      * This method will remove HTML tags from a text file
      */
     public String removeHtmlTags(String filePath) throws IOException
@@ -176,10 +194,6 @@ public class Jobs
                 new OutputSettings().prettyPrint(true));
 
             LOGGER.info("Tags cleaned successfully.");
-        }
-        catch (IOException e)
-        {
-            LOGGER.error(e.getMessage());
         }
         return Jsoup.clean(doc, "", Whitelist.none(), new OutputSettings().prettyPrint(false));
     }
@@ -199,11 +213,6 @@ public class Jobs
                 bw.write(cleanHtml);
             }
             LOGGER.info("Clean text written with success and available in project folder.");
-        }
-        catch (IOException e)
-        {
-            LOGGER.error("Something went wrong while writing the result on a file : {}",
-                e.getMessage());
         }
     }
 

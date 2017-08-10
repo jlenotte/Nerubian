@@ -37,10 +37,6 @@ public class DataReader
             }
             LOGGER.debug("File was read successfully.");
         }
-        catch (IOException e)
-        {
-            LOGGER.debug(e.getMessage());
-        }
         return list;
     }
 }
