@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6a60f4b-5dfc-4682-bcf1-01011fa7ae58" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/CrawlerTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" afterPath="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" afterPath="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,13 +17,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CrawlerTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
+      <file leaf-file-name="Jobs.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="659">
+              <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding>
-                <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+                <element signature="imports" expanded="true" />
+                <marker date="1502351202743" expanded="true" signature="49:550" ph="..." />
               </folding>
             </state>
           </provider>
@@ -74,9 +73,9 @@
         <option value="$PROJECT_DIR$/src/main/java/NerubianCore/Jobs.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/URLObject.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java" />
-        <option value="$PROJECT_DIR$/src/test/java/CrawlerTest.java" />
       </list>
     </option>
   </component>
@@ -456,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1502293077484</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Algorithmic issue fixed and metadata implemented.">
+      <created>1502299238565</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1502299238565</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -475,8 +481,8 @@
     <history-entry file="CrawlerTest_getMetaData - 2017.08.09 at 19h 19m 46s.xml">
       <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 11h 15m 18s.xml">
-      <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
+    <history-entry file="CrawlerTest_getMetaData - 2017.08.10 at 09h 39m 07s.xml">
+      <configuration name="CrawlerTest.getMetaData" configurationId="JUnit" />
     </history-entry>
     <history-entry file="CrawlerTest_removeHtmlTagsTest - 2017.08.09 at 11h 19m 09s.xml">
       <configuration name="CrawlerTest.removeHtmlTagsTest" configurationId="JUnit" />
@@ -503,7 +509,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2052" y="121" width="1510" height="933" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.35416666" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="2052" y="121" width="1510" height="933" />
       <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -564,7 +570,8 @@
     <MESSAGE value="Program is functionnal. More testing required." />
     <MESSAGE value="More tests done, code quality improved." />
     <MESSAGE value="Code quality improved, Sonar finds no issues. Redundancies removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Code quality improved, Sonar finds no issues. Redundancies removed." />
+    <MESSAGE value="Algorithmic issue fixed and metadata implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Algorithmic issue fixed and metadata implemented." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -579,7 +586,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="15" lean-forward="false" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
           <folding>
-            <marker date="1502297831507" expanded="true" signature="108:778" ph="{...}" />
+            <marker date="1502351202747" expanded="true" signature="108:774" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -589,24 +596,8 @@
         <state relative-caret-position="1394">
           <caret line="100" column="50" lean-forward="true" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
           <folding>
-            <marker date="1502299177365" expanded="true" signature="31:550" ph="..." />
-            <marker date="1502299177365" expanded="true" signature="49:550" ph="..." />
-            <marker date="1502299177365" expanded="true" signature="552:634" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="866:958" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="1021:1654" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="1296:1401" ph="//..." />
-            <marker date="1502299177365" expanded="true" signature="1746:1802" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="1869:2988" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="2994:3223" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="3318:3647" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="3741:3772" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="3839:4670" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="4764:4833" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="4907:5599" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="5605:5712" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="5791:6304" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="6396:6455" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="6487:6907" ph="{...}" />
+            <element signature="imports" expanded="true" />
+            <marker date="1502351202743" expanded="true" signature="49:550" ph="..." />
           </folding>
         </state>
       </provider>
@@ -616,7 +607,11 @@
         <state relative-caret-position="357">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
+            <marker date="1502299183869" expanded="false" signature="7:133" ph="..." />
             <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+            <marker date="1502299183869" expanded="true" signature="224:530" ph="{...}" />
+            <marker date="1502299183869" expanded="true" signature="602:924" ph="{...}" />
+            <marker date="1502299183869" expanded="true" signature="989:1164" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -704,49 +699,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="40" column="35" lean-forward="false" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
+          <folding>
+            <marker date="1502299183869" expanded="false" signature="7:133" ph="..." />
+            <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+            <marker date="1502299183869" expanded="true" signature="224:530" ph="{...}" />
+            <marker date="1502299183869" expanded="true" signature="602:924" ph="{...}" />
+            <marker date="1502299183869" expanded="true" signature="989:1164" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        <state relative-caret-position="289">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
           <folding>
-            <marker date="1502297831507" expanded="true" signature="108:778" ph="{...}" />
+            <marker date="1502351202747" expanded="true" signature="108:774" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nerubian/core/Jobs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+        <state relative-caret-position="659">
+          <caret line="169" column="0" lean-forward="true" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding>
-            <marker date="1502299177365" expanded="true" signature="31:550" ph="..." />
-            <marker date="1502299177365" expanded="true" signature="49:550" ph="..." />
-            <marker date="1502299177365" expanded="true" signature="552:634" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="866:958" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="1021:1654" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="1296:1401" ph="//..." />
-            <marker date="1502299177365" expanded="true" signature="1746:1802" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="1869:2988" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="2994:3223" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="3318:3647" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="3741:3772" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="3839:4670" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="4764:4833" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="4907:5599" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="5605:5712" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="5791:6304" ph="{...}" />
-            <marker date="1502299177365" expanded="true" signature="6396:6455" ph="/**...*/" />
-            <marker date="1502299177365" expanded="true" signature="6487:6907" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/CrawlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding>
-            <marker date="1502299183869" expanded="true" signature="27:133" ph="..." />
+            <element signature="imports" expanded="true" />
+            <marker date="1502351202743" expanded="true" signature="49:550" ph="..." />
           </folding>
         </state>
       </provider>

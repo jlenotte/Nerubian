@@ -56,7 +56,6 @@ public class Jobs
         return resultList;
     }
 
-    /******************************************************************************/
 
     /**
      * This method will fire HTTP GET method
@@ -103,6 +102,7 @@ public class Jobs
         return response.toString();
     }
 
+
     /**
      * This method writes the result of the HTTP GET method on a file
      *
@@ -110,47 +110,45 @@ public class Jobs
      * @param filePath takes an HttpURLConnection in param
      * @throws IOException throws an IOEx
      */
-    public void writetHttpGetResult(String resultat1, String filePath) throws IOException
+    public void writetHttpGetResult(String result, String filePath) throws IOException
     {
         try (FileWriter fw = new FileWriter(filePath))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
                 LOGGER.info("Saving result...");
-                bw.write(resultat1);
+                bw.write(result);
 
                 // Log result
-                LOGGER.debug(resultat1);
+                LOGGER.debug(result);
             }
         }
     }
 
-    /********************************************************************************/
 
     /**
      * Get metadata
      */
     public String getMetaData(String link) throws IOException
     {
-        Document document = null;
         String description = null;
         String keywords = null;
         try
         {
             // Get a document after parsing html from given url
-            document = Jsoup.connect(link).get();
+            Document document = Jsoup.connect(link).get();
 
             // Get description from document object
             description = document.select("meta[name=description]").get(0).attr("content");
 
             // Log it
-            LOGGER.debug("Meta description {}", description);
+            LOGGER.debug("Meta description : {}", description);
 
             // Get keywords from document objet
             keywords = document.select("meta[name=keywords]").first().attr("content");
 
             // Log it
-            LOGGER.debug("Meta keywords {}", keywords);
+            LOGGER.debug("Meta keywords : {}", keywords);
         }
         catch (IOException e)
         {
@@ -160,7 +158,6 @@ public class Jobs
         return description + keywords;
     }
 
-    /********************************************************************************/
 
     /**
      * This method will remove HTML tags from a text file
@@ -187,6 +184,7 @@ public class Jobs
         return Jsoup.clean(doc, "", Whitelist.none(), new OutputSettings().prettyPrint(false));
     }
 
+
     /**
      * This method writes the cleaned up text into a file
      * @throws IOException throws IOE
@@ -209,7 +207,6 @@ public class Jobs
         }
     }
 
-    /******************************************************************************/
 
     /**
      * This method will open up the result file
