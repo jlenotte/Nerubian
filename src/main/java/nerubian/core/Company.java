@@ -5,9 +5,6 @@ public class Company
 
     // Attributes
     private String companyName;
-    /**
-     * url
-     */
     private String url;
 
     // Empty constructor

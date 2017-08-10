@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
@@ -60,12 +61,13 @@ public class Jobs
     /**
      * This method will fire HTTP GET method
      */
-    public String fireHttpGET(String link) throws IOException
+    public String fireHttpGET(String link) throws IOException, BadResponseCodeException
     {
 
         // Init
         URL url = new URL(link);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        StringBuilder response = new StringBuilder();
 
         // Request method
         conn.setRequestMethod("GET");
@@ -79,25 +81,24 @@ public class Jobs
         LOGGER.info("Response code : {}", responseCode);
 
         // Check if response code is valid
-        if (responseCode != 200)
+        if (responseCode == 200)
         {
-            LOGGER.error("Bad response code : {}", responseCode);
+            LOGGER.info("HTTP GET request successful.");
+            // Get the response via InputStream
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            String inLine;
+
+            while ((inLine = br.readLine()) != null)
+            {
+                response.append(inLine);
+            }
+            br.close();
         }
         else
         {
-            LOGGER.info("HTTP GET request successful.");
+            LOGGER.error("Fetching failed, bad response code : {}", responseCode);
+            response.append("");
         }
-
-        // Get the response via InputStream
-        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-        StringBuilder response = new StringBuilder();
-        String inLine;
-
-        while ((inLine = br.readLine()) != null)
-        {
-            response.append(inLine);
-        }
-        br.close();
 
         return response.toString();
     }
@@ -118,9 +119,6 @@ public class Jobs
             {
                 LOGGER.info("Saving result...");
                 bw.write(result);
-
-                // Log result
-                LOGGER.debug(result);
             }
         }
     }
@@ -173,16 +171,33 @@ public class Jobs
             list[i] = list[i].trim();
             LOGGER.debug(list[i]);
         }
+
         return list;
     }
 
+    /**
+     * Write metadata
+     */
+    public void writeMetaData(String[] metadata, String fileName) throws IOException
+    {
+        try (FileWriter fw = new FileWriter(fileName))
+        {
+            try (BufferedWriter bw = new BufferedWriter(fw))
+            {
+                for (int i = 0; i < metadata.length; i++)
+                {
+                    bw.write(metadata[i] + "\n");
+                }
+            }
+        }
+    }
 
     /**
      * This method will remove HTML tags from a text file
      */
     public String removeHtmlTags(String filePath) throws IOException
     {
-        String doc = "";
+        String doc;
         try (Scanner in = new Scanner(new File(filePath)))
         {
             // Clean html tags with Jsoup
@@ -236,4 +251,8 @@ public class Jobs
             LOGGER.error("Error while trying to open the result file. Exception : %s", e);
         }
     }
+
+    /**
+     *
+     */
 }

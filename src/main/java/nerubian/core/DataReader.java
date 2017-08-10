@@ -11,16 +11,15 @@ import org.slf4j.LoggerFactory;
 
 public class DataReader
 {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(DataReader.class);
 
     public List<Company> readFile(File inFile) throws IOException
     {
         ArrayList<Company> list = new ArrayList<>();
-
         // Try with res (CSV file reader that opens the file, separates values with commas)
         try(CSVReader reader = new CSVReader(new FileReader(String.valueOf(inFile)), ','))
         {
+
             LOGGER.debug("Reading CSV file...");
             String[] nextLine;
             URLObject urlObject = new URLObject();
@@ -36,6 +35,10 @@ public class DataReader
                 list.add(c);
             }
             LOGGER.debug("File was read successfully.");
+        }
+        catch (IOException e)
+        {
+            LOGGER.error(e.getMessage());
         }
         return list;
     }
