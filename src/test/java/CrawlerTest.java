@@ -29,7 +29,7 @@ public class CrawlerTest
         Jobs job = new Jobs();
 
         String cleanedHtml = job.removeHtmlTags(doc);
-        job.writeCleanTextResult(cleanedHtml);
+//        job.writeCleanTextResult(cleanedHtml);
     }
 
     @Test
@@ -40,5 +40,20 @@ public class CrawlerTest
 
         String resultat = job.getMetaData(link);
         job.formatMetaData(resultat);
+    }
+
+    @Test
+    public void scrapeHtml() throws IOException
+    {
+        Jobs job = new Jobs();
+        String link = "http://www.boursier.com/indices/composition/cac-40-FR0003500008,FR.html?tri=dcapi";
+        try
+        {
+            job.scrapeCac40Html(link);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

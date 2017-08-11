@@ -2,7 +2,6 @@ package nerubian.core;
 
 public class BadResponseCodeException extends Exception
 {
-
     public BadResponseCodeException()
     {
 

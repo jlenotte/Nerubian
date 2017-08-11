@@ -16,7 +16,9 @@ import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
+import org.jsoup.nodes.Element;
 import org.jsoup.safety.Whitelist;
+import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,7 +30,7 @@ public class Jobs
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Jobs.class);
     private static final String USER_AGENT = "Mozilla/5.0";
-    private static final String CLEAN_TEXT_FILE = "cleanText.txt";
+
 
     /**
      * This method will convert a NerubianCore.Company object into a useable URL
@@ -57,11 +59,84 @@ public class Jobs
         return resultList;
     }
 
+    /**
+     * Get a list of URL's using CAC40's website and <table> tags
+     */
+//    public List<Company> getUrlList()
+//    {
+//
+//    }
+
+    /**
+     * Scrape html table elements
+     */
+    public void scrapeCac40Html(String link) throws IOException
+    {
+        // Mk document and connect to a link
+        Document doc = Jsoup.connect(link).get();
+
+        // Loop through elements of the page to find the desired html tag's data
+        for (Element table : doc.select("table"))
+        {
+            for (Element tbody : table.select("tbody"))
+            {
+                for (Element tr : tbody.select("tr"))
+                {
+                    for (Element td : tr.select("td"))
+                    {
+                        for (Element a : td.select("a"))
+                        {
+                            Elements tds = a.select("a");
+                            String scrapedLink = "http://www.boursier.com" + tds.attr("href");
+                            LOGGER.debug(scrapedLink);
+
+                            // Repeat the operation with a new Document
+                            Document doc2 = Jsoup.connect(scrapedLink).get();
+
+                            for (Element nav : doc2.select("nav"))
+                            {
+                                for (Element ul : nav.select("ul"))
+                                {
+                                    for (Element li : ul.select("li"))
+                                    {
+                                        for (Element a2 : li.select("a"))
+                                        {
+                                            if ("Société".equals(a2.text()))
+                                            {
+                                                Elements lis = a2.select("a");
+                                                String scrapedLink2 =
+                                                    "http://www.boursier.com" + lis.attr("href");
+                                                LOGGER.debug(scrapedLink2);
+
+                                                // Repeat the operation again
+                                                Document doc3 = Jsoup.connect(scrapedLink2).get();
+
+                                                for (Element addr : doc3.select("address"))
+                                                {
+                                                    for (Element a3 : addr.select("a"))
+                                                    {
+                                                        Elements address = a3.select("a");
+                                                        String scarpedLink3 = address.attr("href");
+                                                        LOGGER.debug("COMPANY LINK : {}",
+                                                            scarpedLink3);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * This method will fire HTTP GET method
      */
-    public String fireHttpGET(String link) throws IOException, BadResponseCodeException
+    public String fireHttpGET(String link) throws IOException
     {
 
         // Init
@@ -77,7 +152,7 @@ public class Jobs
 
         // Response code
         final int responseCode = conn.getResponseCode();
-        LOGGER.info("Sending 'GET' request to URL : {}", url);
+        LOGGER.info("Sending 'GET' request to URL : {} ...", url);
         LOGGER.info("Response code : {}", responseCode);
 
         // Check if response code is valid
@@ -85,7 +160,8 @@ public class Jobs
         {
             LOGGER.info("HTTP GET request successful.");
             // Get the response via InputStream
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+            BufferedReader br = new BufferedReader(
+                new InputStreamReader(conn.getInputStream()));
             String inLine;
 
             while ((inLine = br.readLine()) != null)
@@ -97,9 +173,8 @@ public class Jobs
         else
         {
             LOGGER.error("Fetching failed, bad response code : {}", responseCode);
-            response.append("");
+            throw new IOException();
         }
-
         return response.toString();
     }
 
@@ -131,7 +206,7 @@ public class Jobs
     {
         String description = null;
         String keywords = null;
-        LOGGER.info("Fetching {} ...", link);
+        LOGGER.info("Fetching Metadata from {} ...", link);
         try
         {
             // Get a document after parsing html from given url
@@ -148,10 +223,16 @@ public class Jobs
 
             // Log it
             LOGGER.debug("Meta keywords : {}", keywords);
+
+            if (keywords == null)
+            {
+                LOGGER.warn("Null Metadata for {}", link);
+            }
         }
         catch (IOException e)
         {
             LOGGER.error(e.getMessage());
+            LOGGER.error("Metadata may not be defined or available for {}", link);
         }
 
         return description + keywords;
@@ -175,6 +256,7 @@ public class Jobs
         return list;
     }
 
+
     /**
      * Write metadata
      */
@@ -191,6 +273,7 @@ public class Jobs
             }
         }
     }
+
 
     /**
      * This method will remove HTML tags from a text file
@@ -218,9 +301,9 @@ public class Jobs
      * This method writes the cleaned up text into a file
      * @throws IOException throws IOE
      */
-    public void writeCleanTextResult(String cleanHtml) throws IOException
+    public void writeCleanTextResult(String cleanHtml, String cleanTextFile) throws IOException
     {
-        try (FileWriter fw = new FileWriter(CLEAN_TEXT_FILE))
+        try (FileWriter fw = new FileWriter(cleanTextFile))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
@@ -235,6 +318,7 @@ public class Jobs
     /**
      * This method will open up the result file
      */
+    /*
     public void openFile()
     {
         try
@@ -252,7 +336,5 @@ public class Jobs
         }
     }
 
-    /**
-     *
-     */
+    */
 }
