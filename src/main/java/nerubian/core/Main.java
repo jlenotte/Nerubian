@@ -39,7 +39,6 @@ public class Main
 
                 // Fire HTTP GET request
                 String result = job.fireHttpGET(company.getURL());
-                job.writetHttpGetResult(result, rawHttpFile);
 
                 // Write HTTP GET result in a file
                 job.writetHttpGetResult(result, rawHttpFile);

@@ -1,18 +1,24 @@
 package nerubian.core;
 
-import java.awt.Desktop;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.BitSet;
 import java.util.List;
 import java.util.Scanner;
-import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Document.OutputSettings;
@@ -59,21 +65,15 @@ public class Jobs
         return resultList;
     }
 
-    /**
-     * Get a list of URL's using CAC40's website and <table> tags
-     */
-//    public List<Company> getUrlList()
-//    {
-//
-//    }
 
     /**
      * Scrape html table elements
      */
-    public void scrapeCac40Html(String link) throws IOException
+    public String scrapeCac40Html(String link) throws IOException
     {
         // Mk document and connect to a link
         Document doc = Jsoup.connect(link).get();
+        String finalLink = "";
 
         // Loop through elements of the page to find the desired html tag's data
         for (Element table : doc.select("table"))
@@ -88,7 +88,6 @@ public class Jobs
                         {
                             Elements tds = a.select("a");
                             String scrapedLink = "http://www.boursier.com" + tds.attr("href");
-                            LOGGER.debug(scrapedLink);
 
                             // Repeat the operation with a new Document
                             Document doc2 = Jsoup.connect(scrapedLink).get();
@@ -104,9 +103,8 @@ public class Jobs
                                             if ("Société".equals(a2.text()))
                                             {
                                                 Elements lis = a2.select("a");
-                                                String scrapedLink2 =
-                                                    "http://www.boursier.com" + lis.attr("href");
-                                                LOGGER.debug(scrapedLink2);
+                                                String scrapedLink2 = "http://www.boursier.com"
+                                                    + lis.attr("href");
 
                                                 // Repeat the operation again
                                                 Document doc3 = Jsoup.connect(scrapedLink2).get();
@@ -116,9 +114,16 @@ public class Jobs
                                                     for (Element a3 : addr.select("a"))
                                                     {
                                                         Elements address = a3.select("a");
-                                                        String scarpedLink3 = address.attr("href");
-                                                        LOGGER.debug("COMPANY LINK : {}",
-                                                            scarpedLink3);
+                                                        String scrapedLink3 = address.attr("href");
+
+                                                        // If href equals to the tag's text, get the link in a new var
+                                                        if (scrapedLink3.equals(a3.text()))
+                                                        {
+                                                            finalLink = scrapedLink3;
+                                                            LOGGER.info("Company link : {}",
+                                                                finalLink);
+                                                            writeScrapedData(finalLink);
+                                                        }
                                                     }
                                                 }
                                             }
@@ -131,13 +136,83 @@ public class Jobs
                 }
             }
         }
+
+        return finalLink;
     }
+
+    /**
+     * write result into existing csv
+     */
+    public void writeScrapedData(String finalLink) throws IOException
+    {
+        // Read CSV
+        // Put it into an arraylist
+        // Append new values
+        // Rewrite CSV
+
+        try
+        {
+            try (CSVReader reader = new CSVReader(new FileReader("data.csv"), ','))
+            {
+                try (FileWriter fw = new FileWriter("data_new.csv", false))
+                {
+                    try (BufferedWriter bw = new BufferedWriter(fw))
+                    {
+                        String[] nextLine = null;
+                        List<Company> list = new ArrayList<>();
+
+                        while ((nextLine = reader.readNext()) != null)
+                        {
+                            String companyName = finalLink;
+                            String companyWebsite = finalLink;
+                            companyName = nextLine[0];
+                            companyWebsite = nextLine[1];
+                            Company c = new Company(companyName, companyWebsite);
+                            list.add(c);
+
+                            bw.write(c.getCompanyName() + "," + c.getURL());
+                            bw.newLine();
+                            bw.flush();
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            LOGGER.error(e.getMessage());
+        }
+    }
+
+
+    /**
+     * Use DOM methods to navigate a document
+     */
+    public String scrapeDomMethod(String inputLink) throws IOException
+    {
+        Document doc = Jsoup.parse(inputLink);
+        Element content = doc.getElementById("content");
+        Elements links = content.getElementsByTag("div");
+        Element link2 = doc.select("a").first();
+
+        String linkHref = "";
+        String linkText = "";
+        for (Element link : links)
+        {
+            linkHref = link2.attr("href");
+            linkText = link2.text();
+        }
+
+        return linkHref + linkText;
+    }
+
 
     /**
      * This method will fire HTTP GET method
      */
     public String fireHttpGET(String link) throws IOException
     {
+        LOGGER.info("Firing HTTP GET...");
 
         // Init
         URL url = new URL(link);
@@ -182,7 +257,7 @@ public class Jobs
     /**
      * This method writes the result of the HTTP GET method on a file
      *
-     * @param filePath takes a String in param
+     * @param result takes the result of fireHttpGet as a String in param
      * @param filePath takes an HttpURLConnection in param
      * @throws IOException throws an IOEx
      */
@@ -192,7 +267,7 @@ public class Jobs
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
-                LOGGER.info("Saving result...");
+                LOGGER.info("Saving HTML...");
                 bw.write(result);
             }
         }
@@ -262,6 +337,7 @@ public class Jobs
      */
     public void writeMetaData(String[] metadata, String fileName) throws IOException
     {
+        LOGGER.info("Saving Metadata...");
         try (FileWriter fw = new FileWriter(fileName))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
@@ -270,6 +346,7 @@ public class Jobs
                 {
                     bw.write(metadata[i] + "\n");
                 }
+                LOGGER.info("Metadata saved written with success.");
             }
         }
     }
@@ -299,10 +376,12 @@ public class Jobs
 
     /**
      * This method writes the cleaned up text into a file
+     *
      * @throws IOException throws IOE
      */
     public void writeCleanTextResult(String cleanHtml, String cleanTextFile) throws IOException
     {
+        LOGGER.info("Saving clean text...");
         try (FileWriter fw = new FileWriter(cleanTextFile))
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
@@ -310,10 +389,9 @@ public class Jobs
                 // Write to file
                 bw.write(cleanHtml);
             }
-            LOGGER.info("Clean text written with success and available in project folder.");
+            LOGGER.info("Clean text written with success.");
         }
     }
-
 
     /**
      * This method will open up the result file

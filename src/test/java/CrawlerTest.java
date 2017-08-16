@@ -47,13 +47,31 @@ public class CrawlerTest
     {
         Jobs job = new Jobs();
         String link = "http://www.boursier.com/indices/composition/cac-40-FR0003500008,FR.html?tri=dcapi";
+        String result;
         try
         {
-            job.scrapeCac40Html(link);
+            result = job.scrapeCac40Html(link);
+            System.out.println(result);
         }
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void scrapeHtmlDom() throws IOException
+    {
+        Jobs job = new Jobs();
+        String link = "http://www.boursier.com/indices/composition/cac-40-FR0003500008,FR.html?tri=dcapi";
+        try
+        {
+            String result = job.scrapeDomMethod(link);
+            System.out.println(result);
+        }
+        catch (IOException e)
+        {
+            System.out.println(e.getMessage());
         }
     }
 }
