@@ -12,8 +12,7 @@ public class Main
     public static void main(String[] args) throws Exception
     {
         // Init strings used to store results & params
-        int i = 0;
-        File input = new File("data.csv");
+        File input = new File("data_new.csv");
         String rawHttpFile;
         String metaDataFile;
         String cleanTextFile;
@@ -32,9 +31,9 @@ public class Main
             try
             {
                 // Give a new name, each company should have its own report
-                rawHttpFile = "HTTP_GET_RESULT_" + company.getCompanyName() + ".txt";
-                metaDataFile = "METADATA_" + company.getCompanyName() + ".txt";
-                cleanTextFile = "CLEAN_TEXT_" + company.getCompanyName() + ".txt";
+                rawHttpFile = "results/HTTP_GET_RESULT_" + company.getCompanyName() + ".txt";
+                metaDataFile = "results/METADATA_" + company.getCompanyName() + ".txt";
+                cleanTextFile = "results/CLEAN_TEXT_" + company.getCompanyName() + ".txt";
                 link = company.getURL();
 
                 // Fire HTTP GET request

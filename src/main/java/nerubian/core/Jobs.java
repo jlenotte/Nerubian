@@ -1,22 +1,15 @@
 package nerubian.core;
 
-import com.opencsv.CSVReader;
-import com.opencsv.CSVWriter;
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.BitSet;
 import java.util.List;
 import java.util.Scanner;
 import org.jsoup.Jsoup;
@@ -29,7 +22,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class Jobs contains all the core processing methods for the web crawler
+ * Class Jobs contains all the core processing
+ * methods for the web crawler & result writing
  */
 public class Jobs
 {
@@ -40,7 +34,9 @@ public class Jobs
 
     /**
      * This method will convert a NerubianCore.Company object into a useable URL
+     * @deprecated unused method
      */
+    @Deprecated
     public List<URLObject> convertURL(List<Company> list)
     {
         List<URLObject> resultList = new ArrayList<>();
@@ -68,114 +64,81 @@ public class Jobs
 
     /**
      * Scrape html table elements
+     * @throws IOException throws IOE
      */
-    public String scrapeCac40Html(String link) throws IOException
+    public String scrapeCac40HtmlCssSelector(String link) throws IOException
     {
         // Mk document and connect to a link
         Document doc = Jsoup.connect(link).get();
+        String companyName = "";
         String finalLink = "";
+        List<Company> list = new ArrayList<>();
 
         // Loop through elements of the page to find the desired html tag's data
-        for (Element table : doc.select("table"))
+        for (Element table : doc.select("table > tbody > tr > td > a"))
         {
-            for (Element tbody : table.select("tbody"))
+            Elements tds = table.select("a");
+            String scrapedLink = "http://www.boursier.com" + tds.attr("href");
+
+            // Repeat the operation with a new Document
+            Document doc2 = Jsoup.connect(scrapedLink).get();
+
+            for (Element nav : doc2.select("nav > ul > li > a"))
             {
-                for (Element tr : tbody.select("tr"))
+                if ("Société".equals(nav.text()))
                 {
-                    for (Element td : tr.select("td"))
+                    Elements lis = nav.select("a");
+                    String scrapedLink2 = "http://www.boursier.com"
+                        + lis.attr("href");
+
+                    // Repeat the operation again
+                    Document doc3 = Jsoup.connect(scrapedLink2).get();
+
+                    for (Element addr : doc3.select("address"))
                     {
-                        for (Element a : td.select("a"))
+                        for (Element strong : addr.select("strong"))
                         {
-                            Elements tds = a.select("a");
-                            String scrapedLink = "http://www.boursier.com" + tds.attr("href");
+                            companyName = strong.text();
+                        }
 
-                            // Repeat the operation with a new Document
-                            Document doc2 = Jsoup.connect(scrapedLink).get();
+                        for (Element a3 : addr.select("a"))
+                        {
+                            Elements address = a3.select("a");
+                            String scrapedLink3 = address.attr("href");
 
-                            for (Element nav : doc2.select("nav"))
+                            // If href equals to the tag's text, get the link in a new var
+                            // Use .contains instead of .equals for more details
+                            if (scrapedLink3.equals(a3.text()))
                             {
-                                for (Element ul : nav.select("ul"))
-                                {
-                                    for (Element li : ul.select("li"))
-                                    {
-                                        for (Element a2 : li.select("a"))
-                                        {
-                                            if ("Société".equals(a2.text()))
-                                            {
-                                                Elements lis = a2.select("a");
-                                                String scrapedLink2 = "http://www.boursier.com"
-                                                    + lis.attr("href");
-
-                                                // Repeat the operation again
-                                                Document doc3 = Jsoup.connect(scrapedLink2).get();
-
-                                                for (Element addr : doc3.select("address"))
-                                                {
-                                                    for (Element a3 : addr.select("a"))
-                                                    {
-                                                        Elements address = a3.select("a");
-                                                        String scrapedLink3 = address.attr("href");
-
-                                                        // If href equals to the tag's text, get the link in a new var
-                                                        if (scrapedLink3.equals(a3.text()))
-                                                        {
-                                                            finalLink = scrapedLink3;
-                                                            LOGGER.info("Company link : {}",
-                                                                finalLink);
-                                                            writeScrapedData(finalLink);
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                                Company c = new Company(companyName, finalLink);
+                                finalLink = scrapedLink3;
+                                list.add(c);
+                                LOGGER.info("Company : {} {}", companyName, finalLink);
                             }
                         }
                     }
                 }
             }
+
         }
 
+        writeScrapedData(list);
         return finalLink;
     }
 
+
     /**
      * write result into existing csv
+     * @throws IOException throws IOE
      */
-    public void writeScrapedData(String finalLink) throws IOException
+    public void writeScrapedData(List<Company> list) throws IOException
     {
-        // Read CSV
-        // Put it into an arraylist
-        // Append new values
-        // Rewrite CSV
-
-        try
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("data_new.csv", false)))
         {
-            try (CSVReader reader = new CSVReader(new FileReader("data.csv"), ','))
+            for (Company c : list)
             {
-                try (FileWriter fw = new FileWriter("data_new.csv", false))
-                {
-                    try (BufferedWriter bw = new BufferedWriter(fw))
-                    {
-                        String[] nextLine = null;
-                        List<Company> list = new ArrayList<>();
-
-                        while ((nextLine = reader.readNext()) != null)
-                        {
-                            String companyName = finalLink;
-                            String companyWebsite = finalLink;
-                            companyName = nextLine[0];
-                            companyWebsite = nextLine[1];
-                            Company c = new Company(companyName, companyWebsite);
-                            list.add(c);
-
-                            bw.write(c.getCompanyName() + "," + c.getURL());
-                            bw.newLine();
-                            bw.flush();
-                        }
-                    }
-                }
+                bw.write(c.getCompanyName() + "," + c.getURL());
+                bw.newLine();
             }
         }
         catch (Exception e)
@@ -186,29 +149,10 @@ public class Jobs
 
 
     /**
-     * Use DOM methods to navigate a document
-     */
-    public String scrapeDomMethod(String inputLink) throws IOException
-    {
-        Document doc = Jsoup.parse(inputLink);
-        Element content = doc.getElementById("content");
-        Elements links = content.getElementsByTag("div");
-        Element link2 = doc.select("a").first();
-
-        String linkHref = "";
-        String linkText = "";
-        for (Element link : links)
-        {
-            linkHref = link2.attr("href");
-            linkText = link2.text();
-        }
-
-        return linkHref + linkText;
-    }
-
-
-    /**
      * This method will fire HTTP GET method
+     * @param link takes an url and gets the response code and connection status
+     * @return returns a String
+     * @throws IOException throws IOE
      */
     public String fireHttpGET(String link) throws IOException
     {
@@ -256,7 +200,6 @@ public class Jobs
 
     /**
      * This method writes the result of the HTTP GET method on a file
-     *
      * @param result takes the result of fireHttpGet as a String in param
      * @param filePath takes an HttpURLConnection in param
      * @throws IOException throws an IOEx
@@ -276,12 +219,16 @@ public class Jobs
 
     /**
      * Get metadata
+     * @param link takes an url and grabs the metadata
+     * @return returns a String
+     * @throws IOException throws IOE
      */
     public String getMetaData(String link) throws IOException
     {
         String description = null;
         String keywords = null;
         LOGGER.info("Fetching Metadata from {} ...", link);
+
         try
         {
             // Get a document after parsing html from given url
@@ -316,6 +263,8 @@ public class Jobs
 
     /**
      * Format Metadata for readability
+     * @param result uses the result from getMetaData to format it in a readable form
+     * @return returns a String array
      */
     public String[] formatMetaData(String result)
     {
@@ -334,6 +283,9 @@ public class Jobs
 
     /**
      * Write metadata
+     * @param fileName takes the file's relative path
+     * @param metadata takes the metadata to process it and write it in a file formatted
+     * @throws IOException throws IOE
      */
     public void writeMetaData(String[] metadata, String fileName) throws IOException
     {
@@ -342,9 +294,9 @@ public class Jobs
         {
             try (BufferedWriter bw = new BufferedWriter(fw))
             {
-                for (int i = 0; i < metadata.length; i++)
+                for (String aMetadata : metadata)
                 {
-                    bw.write(metadata[i] + "\n");
+                    bw.write(aMetadata + "\n");
                 }
                 LOGGER.info("Metadata saved written with success.");
             }
@@ -354,6 +306,9 @@ public class Jobs
 
     /**
      * This method will remove HTML tags from a text file
+     * @param filePath takes the file's relative path
+     * @return String returns a string
+     * @throws IOException throws IOE
      */
     public String removeHtmlTags(String filePath) throws IOException
     {
@@ -376,7 +331,8 @@ public class Jobs
 
     /**
      * This method writes the cleaned up text into a file
-     *
+     * @param cleanHtml takes the clean HTML file to write it in a file
+     * @param cleanTextFile takes the clean text file to use it as the filewriter's param
      * @throws IOException throws IOE
      */
     public void writeCleanTextResult(String cleanHtml, String cleanTextFile) throws IOException
@@ -393,18 +349,22 @@ public class Jobs
         }
     }
 
+
     /**
      * This method will open up the result file
+     * @param filePath takes the file's relative path
+     * @deprecated unused method
+     * @throws IOException throws IOE
      */
-    /*
-    public void openFile()
+    @Deprecated
+    public void openFile(String filePath)
     {
         try
         {
             LOGGER.info("Opening up file...");
-            if ((new File(CLEAN_TEXT_FILE)).exists())
+            if ((new File(filePath)).exists())
             {
-                Desktop.getDesktop().open(new File(CLEAN_TEXT_FILE));
+                Desktop.getDesktop().open(new File(filePath));
             }
             LOGGER.info("File opened.");
         }
@@ -414,5 +374,4 @@ public class Jobs
         }
     }
 
-    */
 }
