@@ -22,7 +22,7 @@ public class Company
     }
 
     // Getters & Setters
-    String getCompanyName()
+    public String getCompanyName()
     {
         return companyName;
     }
@@ -32,7 +32,7 @@ public class Company
         this.companyName = companyName;
     }
 
-    String getURL()
+    public String getURL()
     {
         return url;
     }

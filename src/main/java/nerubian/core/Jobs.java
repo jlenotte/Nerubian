@@ -64,9 +64,10 @@ public class Jobs
 
     /**
      * Scrape html table elements
+     * @return returns a String of
      * @throws IOException throws IOE
      */
-    public String scrapeCac40HtmlCssSelector(String link) throws IOException
+    public List<Company> scrapeCac40HtmlCssSelector(String link) throws IOException
     {
         // Mk document and connect to a link
         Document doc = Jsoup.connect(link).get();
@@ -110,20 +111,18 @@ public class Jobs
                             // Use .contains instead of .equals for more details
                             if (scrapedLink3.equals(a3.text()))
                             {
-                                Company c = new Company(companyName, finalLink);
-                                finalLink = scrapedLink3;
+                                Company c = new Company(companyName, scrapedLink3);
                                 list.add(c);
-                                LOGGER.info("Company : {} {}", companyName, finalLink);
+                                LOGGER.info("Company : {} {}", companyName, scrapedLink3);
                             }
                         }
                     }
                 }
             }
-
         }
-
+        LOGGER.debug("{} {}", companyName, finalLink);
         writeScrapedData(list);
-        return finalLink;
+        return list;
     }
 
 
@@ -243,12 +242,14 @@ public class Jobs
             // Get keywords from document objet
             keywords = document.select("meta[name=keywords]").first().attr("content");
 
-            // Log it
-            LOGGER.debug("Meta keywords : {}", keywords);
 
             if (keywords == null)
             {
-                LOGGER.warn("Null Metadata for {}", link);
+                LOGGER.warn("No Metadata found for {}", link);
+            }
+            else
+            {
+                LOGGER.debug("Meta keywords : {}", keywords);
             }
         }
         catch (IOException e)

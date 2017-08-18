@@ -47,11 +47,9 @@ public class CrawlerTest
     {
         Jobs job = new Jobs();
         String link = "http://www.boursier.com/indices/composition/cac-40-FR0003500008,FR.html?tri=dcapi";
-        String result;
         try
         {
-            result = job.scrapeCac40HtmlCssSelector(link);
-            System.out.println(result);
+            job.scrapeCac40HtmlCssSelector(link);
         }
         catch (IOException e)
         {
