@@ -52,6 +52,7 @@ public class Main
                 String resultat = job.getMetaData(link);
                 String[] metadata = job.formatMetaData(resultat);
                 job.writeMetaData(metadata, metaDataFile);
+                LOGGER.info("GIT TEST");
             }
             catch (Exception e)
             {
