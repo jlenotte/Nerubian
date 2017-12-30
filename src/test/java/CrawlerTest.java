@@ -29,7 +29,7 @@ public class CrawlerTest
         Jobs job = new Jobs();
 
         String cleanedHtml = job.removeHtmlTags(doc);
-//        job.writeCleanTextResult(cleanedHtml);
+        job.writeCleanTextResult(cleanedHtml, "cleanHtml");
     }
 
     @Test
